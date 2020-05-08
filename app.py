@@ -9,7 +9,7 @@ mongo = PyMongo(app)
 
 @app.route('/items', methods=['GET'])
 def get_all_itemss():
-    items = mongo.db.items 
+    items = mongo.db.items
 
     output = []
     for doc in items.find():
