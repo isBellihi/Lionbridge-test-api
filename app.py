@@ -4,9 +4,10 @@ from flask_restful import Api
 from src.database.db import initialize_db
 from src.router import TodosApi, TodoApi
 from flask_mongoengine import MongoEngine
-
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 api = Api(app)
 
 app.config['MONGODB_SETTINGS'] = config
