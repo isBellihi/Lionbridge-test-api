@@ -8,6 +8,10 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
+app.config['CORS_HEADERS'] = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': '*'
+}
 api = Api(app)
 
 app.config['MONGODB_SETTINGS'] = config
