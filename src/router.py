@@ -18,7 +18,7 @@ class TodoApi(Resource):
     def put(self, id):
         body = request.get_json()
         Todo.objects.get(id=id).update(**body)
-        return '', 200
+        return {'id': str(id)}, 200
     
     def delete(self, id):
         todo = Todo.objects.get(id=id).delete()
