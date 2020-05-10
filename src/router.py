@@ -3,6 +3,7 @@ from flask import Response, request
 from .database.todo_model import Todo
 from flask_restful import Resource
 from flask_cors import cross_origin
+from datetime import datetime
 
 class TodosApi(Resource):
     def get(self):
@@ -17,9 +18,9 @@ class TodosApi(Resource):
         return {'id': str(id)}, 200
         
 class TodoApi(Resource):
-    @cross_origin('*')
     def put(self, id):
         body = request.get_json()
+        print(body)
         Todo.objects.get(id=id).update(**body)
         return {'id': str(id)}, 200
     
